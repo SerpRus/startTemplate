@@ -1,0 +1,20 @@
+@mixin object-fit($fit: fill, $position: null) {
+  object-fit: $fit;
+
+  @if $position {
+    font-family: "object-fit: #{$fit}; object-position: #{$position}";
+
+    object-position: $position;
+  }
+
+  @else {
+    font-family: "object-fit: #{$fit}";
+  }
+}
+
+@mixin font-large($font-family, $font-size, $font-weight, $line-height) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}

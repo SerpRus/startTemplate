@@ -1,0 +1,99 @@
+/**
+* Colors
+*
+* Название переменной конкретного цвета генерируется через сервис: http://chir.ag/projects/name-that-color/.
+* Значение цвета всегда указывается в HEX-формате в нижнем регистре (кроме исключительных случаев).
+*/
+$black: #000;
+$white: #fff;
+
+/**
+* Динамические переменные цветов
+*/
+$color-text: $black;
+
+/**
+* Fonts
+*/
+// $font-family-custom: "Gilroy";
+// $font-family-default: $font-family-custom, "Arial", "Helvetica", sans-serif;
+// $font-family: $font-family-default;
+
+$font-size-base: 16px;
+// $font-size-small: rem(14px);
+
+// $line-height-large: 1.25;
+
+// $letter-spacing-small: 0.01em;
+
+/**
+* Breakpoints
+*/
+
+// $screen-very-small-mobile-max-width: "(max-width: 480px)";
+// $screen-small-mobile-max-width: "(max-width: 540px)";
+// $screen-mobile-max-width: "(max-width: 768px)";
+// $screen-tablet-max-width: "(max-width: 991px)";
+// $screen-desktop-max-width: "(max-width: 1200px)";
+
+/**
+* Layout
+*/
+
+// $window-container: 1000px;
+// $window-horizontal-padding: 30px;
+
+/**
+* Sizes
+*/
+// $burger-menu-width: rem(33px);
+
+/**
+* Indents
+*/
+// $very-small-indent: rem(10px);
+
+/**
+* Positions
+*/
+// $burger-menu-right: rem(20px);
+
+/**
+* Icons sizes
+*/
+
+// $icon-arrow-width: rem(14px);
+// $icon-arrow-height: rem(12px);
+
+/**
+* Transitions and Animations
+*/
+
+// $transition-all-linear: all 0.3s linear;
+// $transition-default: $transition-all-linear;
+
+/**
+* Decorations
+*/
+// $link-bottom-decoration-size: 2px;
+
+/**
+* Borders
+*/
+// $border-small: 1px solid $color-base-border;
+// $border-default: $border-small;
+
+/**
+* Radius
+*/
+// $button-border-radius: rem(5px);
+
+/**
+* Box-shadows
+*/
+// $header-box-shadow: 0px rem(3px) rem(10px) rgba(0, 0, 0, 0.05);
+
+/**
+* Z-indexes
+*/
+// $header-z-index: 10;

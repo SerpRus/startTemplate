@@ -1,0 +1,69 @@
+{
+  "name": "starttemplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "set NODE_ENV=development&&webpack serve --open --hot",
+    "dev": "set NODE_ENV=development&&webpack",
+    "build": "set NODE_ENV=production&&webpack"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie 11"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@namics/stylelint-bem": "^7.0.0",
+    "babel-loader": "^8.2.3",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-mocha": "^10.0.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "html-loader": "^3.0.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.5",
+    "postcss": "^8.4.4",
+    "postcss-loader": "^6.2.1",
+    "postcss-preset-env": "^7.0.1",
+    "prettier": "^2.5.1",
+    "sass": "^1.43.5",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "stylelint": "^14.5.3",
+    "stylelint-order": "^5.0.0",
+    "stylelint-order-config-csscomb": "^0.1.2",
+    "stylelint-webpack-plugin": "^3.1.1",
+    "svgo-loader": "^3.0.0",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.6.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.2",
+    "object-fit-images": "^3.2.4",
+    "postcss-scss": "^4.0.3",
+    "stylelint-scss": "^4.1.0",
+    "stylelint-selector-bem-pattern": "^2.1.1",
+    "svgo": "^2.8.0"
+  }
+}
