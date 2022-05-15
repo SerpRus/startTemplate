@@ -10,12 +10,12 @@ import '../scss/index.scss';
  */
 // import language from './modules/language';
 
-if (process.env.NODE_ENV === 'development') {
-  /* eslint-disable global-require */
-  require('../html/index.html');
-  require('../html/GUI.html');
-  /* eslint-disable global-require */
-}
+// if (process.env.NODE_ENV === 'development') {
+//   /* eslint-disable global-require */
+//   require('../html/index.html');
+//   require('../html/GUI.html');
+//   /* eslint-disable global-require */
+// }
 
 // Запуск модулей
 // language();

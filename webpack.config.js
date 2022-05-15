@@ -1,77 +1,69 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssEstractPlugin = require('mini-css-extract-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 
-let mode = 'development';
-if (process.env.NODE_ENV === 'production') {
-  mode = 'production';
-}
+const isProd = process.env.NODE_ENV === 'production';
+const isDev = !isProd;
+const mode = isProd ? 'production': 'development';
 
-const filePath = {
-  src: {
-    script: './src/js/index.js',
-    style: './src/scss/index.scss',
-  },
-  dist: './public/',
-};
+const fileName = ext => isDev ? `bundle.${ext}` : `bundle.[hash].${ext}`;
 
 module.exports = {
+  context: path.resolve(__dirname, 'src'),
   mode: mode,
-  entry: [filePath.src.script, filePath.src.style],
+  entry: ['@babel/polyfill', './js/index.js'],
   output: {
-    path: path.resolve(__dirname, filePath.dist),
-    filename: '[name].[contenthash].js',
-    assetModuleFilename: 'assets/[hash][ext][query]',
-    clean: true,
-    publicPath: '',
+    filename: fileName('js'),
+    path: path.resolve(__dirname, 'dist'),
+  },
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@core': path.resolve(__dirname, 'src/core'),
+    },
   },
   devtool: 'source-map',
+  devServer: {
+    port: 3000,
+    hot: isDev,
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './src/html/index.html',
-      chunks: ['main'],
+      template: './html/index.html',
+      minify: {
+        removeComments: isProd,
+        collapseWhitespace: isProd,
+      },
     }),
-    new HtmlWebpackPlugin({
-      filename: 'GUI.html',
-      template: './src/html/GUI.html',
-      chunks: ['main'],
+    new CleanWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/images/favicon.ico'),
+          to: path.resolve(__dirname, 'dist'),
+        },
+      ],
     }),
     new MiniCssEstractPlugin({
-      filename: '[main].[contenthash].css',
+      filename: fileName('css'),
     }),
+    new ESLintPlugin(),
     new StylelintPlugin(),
   ],
   module: {
     rules: [
       {
-        test: /\.html$/i,
-        loader: 'html-loader',
-      },
-      {
         test: /\.s[ac]ss$/i,
         use: [
-          mode === 'development' ? 'style-loader' : MiniCssEstractPlugin.loader,
+          MiniCssEstractPlugin.loader,
           'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: ['postcss-preset-env'],
-              },
-            },
-          },
           'sass-loader',
         ],
-      },
-      {
-        test: /\.(png|jpg|jpeg|gif|sprite\.svg)$/i,
-        type: 'asset/resource',
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
       },
       {
         test: /\.m?js$/i,
