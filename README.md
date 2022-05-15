@@ -1,7 +1,7 @@
 # README - Frontend
 
 ## Начало работы над проектом
-В консоли выполнить "npm install -g webpack"
+В консоли выполнить "npm i webpack"
 Далее для разработки "npm run start"
 Далее для билда проекта "npm run build"
 
