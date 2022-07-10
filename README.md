@@ -536,7 +536,7 @@ p {
 
     $font-size: $font-size-big;
 
-    font-size: rem($font-size-big);
+    font-size: rem($font-size);
     line-height: (24px / $font-size);
 
     width: percentage($width / $container-width);
