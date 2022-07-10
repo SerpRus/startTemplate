@@ -4,7 +4,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssEstractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const StylelintPlugin = require('stylelint-webpack-plugin');
+// const StylelintPlugin = require('stylelint-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 const isDev = !isProd;
@@ -31,6 +31,7 @@ module.exports = {
   devServer: {
     port: 3000,
     hot: isDev,
+    watchFiles: [path.resolve(__dirname, 'src')],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -53,7 +54,7 @@ module.exports = {
       filename: fileName('css'),
     }),
     new ESLintPlugin(),
-    new StylelintPlugin(),
+    // new StylelintPlugin(),
   ],
   module: {
     rules: [
